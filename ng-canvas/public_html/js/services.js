@@ -59,8 +59,8 @@ angular.module('ngCanvasApp.services', []).
                             stroke: 'black',
                             strokeWidth: 2,
                             metadata: {
-                                cod: 'CIRC_02',
-                                des: 'Secondo cerchio'
+                                cod: 'POLY_02',
+                                des: 'Primo poligono'
                             }                            
                         }
                     ]

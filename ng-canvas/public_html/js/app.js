@@ -8,7 +8,7 @@ angular.module('ngCanvasApp', [
     'ngCanvasApp.controllers'
 ]).
 config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/viewer', {templateUrl: 'partials/viewer.html', controller: 'ViewerController'})
+    $routeProvider.when('/lezione1', {templateUrl: 'partials/lezione1.html', controller: 'Lezione1Controller'})
         .when('/home', {templateUrl: 'partials/home.html', controller: 'HomeController'})
         .otherwise({redirectTo: '/home'});
 }]);
