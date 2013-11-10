@@ -6,9 +6,9 @@ angular.module('ngCanvasApp.controllers', []).
             //TODO 
         }
     ]).
-    controller('Lezione1Controller', ['$scope', 'DataLoaderFactory',  
-        function($scope, DataLoaderFactory) {
-            var data = DataLoaderFactory.loadMockData(),
+    controller('Lezione1Controller', ['$scope', 'Lezione1Factory',  
+        function($scope, Lezione1Factory) {
+            var data = Lezione1Factory.loadMockData(),
                 layer;
             
             $scope.stage = new Kinetic.Stage(data.stage);
