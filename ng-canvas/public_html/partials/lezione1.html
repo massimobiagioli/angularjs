@@ -1,23 +1,56 @@
-<div id="viewerContainer"></div>
+<!-- Canvas -->
+<div id="viewerContainer" class="viewer-container"></div>
 
-<div class="row">
-    <div class="span8" style="text-align: center">
-        <span>Filtri</span>
+<!-- Filtri -->
+<div class="container container-custom">
+    <div class="row row-custom">
+        <div class="span12 text-center">
+            <span><b>Filtri</b></span>
+        </div>
+    </div>
+    <div class="row row-custom">
+        <div class="span6 text-right">
+            <span>Codice:</span>
+        </div>
+        <div class="span6 text-left">
+            <input type="text" ng-model="cod" ng-change="executeFilter()"/>
+        </div>
+    </div>
+    <div class="row row-custom">
+        <div class="span6 text-right">
+            <span>Descrizione:</span>
+        </div>
+        <div class="span6 text-left">
+            <input type="text" ng-model="des" ng-change="executeFilter()"/>
+        </div>
     </div>
 </div>
-<div class="row">
-    <div class="span4" style="text-align: right">
-        <span>Codice:</span>
+
+<!-- Info -->
+<div class="container container-info">
+    <div class="row">
+        <div class="span12 text-left">
+            <span><b>Info</b></span>
+        </div>
     </div>
-    <div class="span4" style="text-align: left">
-        <input type="text" ng-model="cod" ng-change="executeFilter()"/>
+    <div class="row">
+        <div class="span12 text-left">
+            <span>1) cod = RECT_01; des = Primo rettangolo</span>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="span4" style="text-align: right">
-        <span>Descrizione:</span>
+    <div class="row">
+        <div class="span12 text-left">
+            <span>2) cod = RECT_02; des = Secondo rettangolo</span>
+        </div>
     </div>
-    <div class="span4" style="text-align: left">
-        <input type="text" ng-model="des" ng-change="executeFilter()"/>
+    <div class="row">
+        <div class="span12 text-left">
+            <span>3) cod = CIRC_01; des = Primo cerchio</span>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12 text-left">
+            <span>4) cod = POLY_01; des = Primo poligono</span>
+        </div>
     </div>
 </div>

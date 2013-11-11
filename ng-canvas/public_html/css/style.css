@@ -2,6 +2,22 @@ body {
     padding-top: 50px;
 }
 .starter-template {
-    padding: 40px 15px;
+    padding: 5px 15px;
     text-align: left;
+}
+.container-custom {
+    background-color: lightgrey;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.row-custom {
+    padding-bottom: 10px;    
+}
+.viewer-container {
+    padding-top: 10px;
+}
+.container-info {
+    background-color: lightyellow;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }

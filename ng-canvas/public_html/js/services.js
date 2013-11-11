@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ngCanvasApp.services', []).
-    factory('DataLoaderFactory', function() {
+    factory('Lezione1Factory', function() {
         return {
             loadMockData: function() {
                 return {
@@ -59,7 +59,7 @@ angular.module('ngCanvasApp.services', []).
                             stroke: 'black',
                             strokeWidth: 2,
                             metadata: {
-                                cod: 'POLY_02',
+                                cod: 'POLY_01',
                                 des: 'Primo poligono'
                             }                            
                         }
