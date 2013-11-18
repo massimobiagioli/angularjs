@@ -1,2 +1,19 @@
 <!-- Canvas -->
 <div id="viewerContainer" class="viewer-container"></div>
+
+<!-- Filtri -->
+<div class="container container-custom">
+    <div class="row row-custom">
+        <div class="span12 text-center">
+            <span><b>Layers</b></span>
+        </div>
+    </div>
+    <div class="row row-custom">
+        <div class="span6 text-right">
+            <span>Riempimento</span>
+        </div>
+        <div class="span6 text-left">
+            <input type="checkbox" ng-model="fillingLayer" ng-change="enableLayers()"/>
+        </div>
+    </div>
+</div>

@@ -57,14 +57,23 @@ angular.module('ngCanvasApp.controllers', []).
             
             $scope.stage = new Kinetic.Stage(data.stage);
             
+            // Inizializza flag per abilitazione layers
+            $scope.fillingLayer = true;
+            
+            // Disegna layers
             _.each(data.layers, function(layer) {
                 newLayer = new Kinetic.Layer();
+                newLayer.metadata = {};
+                
                 if (_.has(layer, "shapes")) {
+                    newLayer.metadata.type = "main";
                     shapeLayer = layer;
                     _.each(layer.shapes, function(shapeData) {
                         newLayer.add(new Kinetic[shapeData.type](shapeData));
                     });
                 } else if (_.has(layer, "fillings")) {
+                    newLayer.metadata.type = "filling";
+                    
                     for (i = 0; i < layer.fillings.length; i++) {
                         shapeTmpData = shapeLayer.shapes[i];
                         if (shapeTmpData.type === "Rect") {
@@ -78,6 +87,19 @@ angular.module('ngCanvasApp.controllers', []).
                 }
                 $scope.stage.add(newLayer);
             });
+            
+            // Gestione abilitazione layers
+            $scope.enableLayers = function() {
+                _.each($scope.stage.children, function(layer) {
+                   if (layer.metadata.type === "filling") {
+                       if ($scope.fillingLayer) {
+                           layer.show();
+                       } else {
+                           layer.hide();
+                       }
+                   } 
+                });
+            };
             
         }
     ]);
