@@ -67,4 +67,44 @@ angular.module('ngCanvasApp.services', []).
                 };
             }
         };
+    }).
+    factory('Lezione2Factory', function() {
+        return {
+            loadMockData: function() {
+                return {
+                    stage: {
+                        container: 'viewerContainer',
+                        width: 600,
+                        height: 400
+                    },
+                    layers: [
+                        {
+                            shapes: [
+                                {
+                                    type: 'Rect',
+                                    x: 10,
+                                    y: 10,
+                                    width: 200,
+                                    height: 100,
+                                    stroke: 'black',
+                                    strokeWidth: 1,
+                                },
+                                {
+                                    type: 'Rect',
+                                    x: 220,
+                                    y: 10,
+                                    width: 200,
+                                    height: 100,
+                                    stroke: 'black',
+                                    strokeWidth: 1,
+                                }
+                            ]
+                        },
+                        {
+                            fillings: [25, 75]
+                        }
+                    ]
+                }
+            }
+        };
     });

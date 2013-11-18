@@ -46,4 +46,39 @@ angular.module('ngCanvasApp.controllers', []).
                 $scope.stage.draw();
             };
         }
+    ]).
+    controller('Lezione2Controller', ['$scope', 'Lezione2Factory',  
+        function($scope, Lezione2Factory) {
+            var data = Lezione2Factory.loadMockData(),
+                newLayer,
+                shapeLayer,
+                i,
+                shapeTmpData;
+            
+            $scope.stage = new Kinetic.Stage(data.stage);
+            
+            _.each(data.layers, function(layer) {
+                newLayer = new Kinetic.Layer();
+                if (_.has(layer, "shapes")) {
+                    shapeLayer = layer;
+                    _.each(layer.shapes, function(shapeData) {
+                        newLayer.add(new Kinetic[shapeData.type](shapeData));
+                    });
+                } else if (_.has(layer, "fillings")) {
+                    for (i = 0; i < layer.fillings.length; i++) {
+                        shapeTmpData = shapeLayer.shapes[i];
+                        if (shapeTmpData.type === "Rect") {
+                            shapeTmpData.width = Math.round(shapeTmpData.width * layer.fillings[i] / 100);
+                            shapeTmpData.fill = 'blue';
+                        } else {
+                            // TODO gestire le altre forme ...
+                        }
+                        newLayer.add(new Kinetic[shapeTmpData.type](shapeTmpData));
+                    }
+                }
+                $scope.stage.add(newLayer);
+            });
+            
+        }
     ]);
+            
