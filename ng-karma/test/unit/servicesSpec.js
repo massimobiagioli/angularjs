@@ -1,14 +1,32 @@
 'use strict';
 
-/* jasmine specs for services go here */
+describe('service', function() {    
+    var data;
+    
+    beforeEach(function() {
+        module('ngKarmaApp.services');
+        inject(function(EsempioFactory) {
+            data = EsempioFactory.loadMockData();            
+        });
+    });
+    
+    describe('loadMockData', function() {
+        it('Devono esistere 5 articoli', function() {            
+            expect(data.articoli.length).toBe(5);
+        });
 
-describe('service', function() {
-  beforeEach(module('myApp.services'));
+        it('Verifica articolo 1: codice', function() {            
+            expect(data.articoli[0].cod).toBe("ART-001");
+        });
 
+        it('Verifica articolo 1: descrizione', function() {            
+            expect(data.articoli[0].des).toBe("matita");
+        });
 
-  describe('version', function() {
-    it('should return current version', inject(function(version) {
-      expect(version).toEqual('0.1');
-    }));
-  });
+        it('Verifica articolo 1: prezzo unitario', function() {            
+            expect(data.articoli[0].prezzo_unitario).toBe(0.85);
+        });
+                
+    });
+  
 });
