@@ -29,7 +29,7 @@
     </div>
     
     <!-- Dati -->
-    <div ng-repeat="articolo in data.articoli | filter: search" class="row row-custom">
+    <div ng-repeat="articolo in data.articoli | filter: search" class="row row-custom">    
         <div class="span4 text-left">
             <span>{{articolo.cod}}</span>
         </div>
@@ -37,7 +37,7 @@
             <span>{{articolo.des}}</span>
         </div>
         <div class="span4 text-left">
-            <span>{{articolo.prezzo_unitario}}</span>
+            <span>{{articolo.prezzo_unitario | ValutaFilter}}</span>
         </div>       
     </div>
     
