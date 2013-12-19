@@ -2,44 +2,31 @@
 
 /* http://docs.angularjs.org/guide/dev_guide.e2e-testing */
 
-describe('my app', function() {
-
-  beforeEach(function() {
-    browser().navigateTo('app/index.html');
-  });
-
-
-  it('should automatically redirect to /view1 when location hash/fragment is empty', function() {
-    expect(browser().location().url()).toBe("/view1");
-  });
-
-
-  describe('view1', function() {
+describe('ng-karma', function() {
 
     beforeEach(function() {
-      browser().navigateTo('#/view1');
+        browser().navigateTo('../../app/index.html');
     });
 
-
-    it('should render view1 when user navigates to /view1', function() {
-      expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for view 1/);
+    it('Reindirizza a Home', function() {
+        expect(browser().location().url()).toBe("/home");
     });
 
-  });
+    describe('esempio', function() {
 
+        beforeEach(function() {
+            browser().navigateTo('#/esempio');
+        });
 
-  describe('view2', function() {
-
-    beforeEach(function() {
-      browser().navigateTo('#/view2');
+        it('Senza i filtri impostati, deve visualizzare 5 elementi', function() {
+            expect(repeater('div .row-data').count()).toEqual(5);            
+        });
+        
+        it('Con il filtro impostato per articolo = mat deve visualizzare un elemento', function() {
+            input('filters.cod').enter('mat');
+            expect(repeater('div .row-data').count()).toEqual(5);            
+        });
+        
     });
 
-
-    it('should render view2 when user navigates to /view2', function() {
-      expect(element('[ng-view] p:first').text()).
-        toMatch(/partial for view 2/);
-    });
-
-  });
 });

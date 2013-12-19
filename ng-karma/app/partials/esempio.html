@@ -5,13 +5,13 @@
     <!-- Filtri -->
     <div class="row row-custom">
         <div class="span4 text-left">
-            <span>contiene</span><input type="text" ng-model="filters.cod" />
+            <span>contiene</span><input id="filterCod" type="text" ng-model="filters.cod" />
         </div>
         <div class="span4 text-left">
-            <span>contiene</span><input type="text" ng-model="filters.des" />
+            <span>contiene</span><input id="filterDes" type="text" ng-model="filters.des" />
         </div>
         <div class="span4 text-left">
-            <span>minore o uguale a</span><input type="text" ng-model="filters.prezzo_unitario" />
+            <span>minore o uguale a</span><input id="filterPrezzo" type="text" ng-model="filters.prezzo_unitario" />
         </div>
     </div>
     
@@ -28,8 +28,8 @@
         </div>
     </div>
     
-    <!-- Dati -->
-    <div ng-repeat="articolo in data.articoli | filter: search" class="row row-custom">    
+    <!-- Dati -->    
+    <div ng-repeat="articolo in data.articoli | filter: search" class="row row-custom row-data">    
         <div class="span4 text-left">
             <span>{{articolo.cod}}</span>
         </div>
