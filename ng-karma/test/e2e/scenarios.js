@@ -23,8 +23,8 @@ describe('ng-karma', function() {
         });
         
         it('Con il filtro impostato per articolo = mat deve visualizzare un elemento', function() {
-            input('filters.cod').enter('mat');
-            expect(repeater('div .row-data').count()).toEqual(5);            
+            input('filters.des').enter('mat');
+            expect(repeater('div .row-data').count()).toEqual(1);            
         });
         
     });
