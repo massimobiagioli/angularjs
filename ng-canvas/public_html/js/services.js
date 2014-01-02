@@ -87,7 +87,7 @@ angular.module('ngCanvasApp.services', []).
                                     width: 200,
                                     height: 100,
                                     stroke: 'black',
-                                    strokeWidth: 1,
+                                    strokeWidth: 1
                                 },
                                 {
                                     type: 'Rect',
@@ -96,7 +96,7 @@ angular.module('ngCanvasApp.services', []).
                                     width: 200,
                                     height: 100,
                                     stroke: 'black',
-                                    strokeWidth: 1,
+                                    strokeWidth: 1
                                 }
                             ]
                         },
@@ -104,7 +104,39 @@ angular.module('ngCanvasApp.services', []).
                             fillings: [25, 75]
                         }
                     ]
-                }
+                };
+            }
+        };
+    }).
+    factory('Lezione3Factory', function() {
+        return {
+            loadMockData: function() {
+                return {
+                    stage: {
+                        container: 'viewerContainer',
+                        width: 600,
+                        height: 400
+                    },
+                    shapes: [
+                        {
+                            type: 'Rect',
+                            x: 10,
+                            y: 10,
+                            width: 200,
+                            height: 100,
+                            stroke: 'black',
+                            strokeWidth: 1
+                        },
+                        {
+                            type: 'Circle',
+                            x: 280,
+                            y: 55,
+                            radius: 50,
+                            stroke: 'black',
+                            strokeWidth: 2
+                        }
+                    ]
+                };
             }
         };
     });

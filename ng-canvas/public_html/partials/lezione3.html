@@ -1,19 +1,19 @@
 <!-- Canvas -->
 <div id="viewerContainer" class="viewer-container"></div>
 
-<!-- Filtri -->
+<!-- Opzioni -->
 <div class="container container-custom">
     <div class="row row-custom">
         <div class="span12 text-center">
-            <span><b>Layers</b></span>
+            <span><b>Opzioni</b></span>
         </div>
     </div>
     <div class="row row-custom">
         <div class="span6 text-right">
-            <span>Riempimento</span>
+            <span>Zoom</span>
         </div>
         <div class="span6 text-left">
-            <input type="checkbox" ng-model="fillingLayer" ng-change="enableLayers()"/>
+            <input type="number" min="10" step="1" max="300" ng-model="zoom" ng-change="changeZoom()"/>
         </div>
     </div>
 </div>

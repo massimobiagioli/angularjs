@@ -102,5 +102,40 @@ angular.module('ngCanvasApp.controllers', []).
             };
             
         }
-    ]);
+    ]).
+    controller('Lezione3Controller', ['$scope', 'Lezione3Factory',  
+        function($scope, Lezione3Factory) {
+            var data = Lezione3Factory.loadMockData(),
+                layer,                
+                background;
             
+            $scope.stage = new Kinetic.Stage(data.stage);
+            
+            layer = new Kinetic.Layer();
+            layer.setDraggable("draggable");
+            
+            background = new Kinetic.Rect({
+                x: -1000,
+                y: -1000,
+                width: 2000,
+                height: 2000,
+                fill: "#000000",
+                opacity: 0
+            });
+            
+            layer.add(background);
+            
+            _.each(data.shapes, function(shapeData) {
+                layer.add(new Kinetic[shapeData.type](shapeData));
+            });
+            
+            $scope.stage.add(layer);
+            
+            $scope.zoom = 100;
+            
+            $scope.changeZoom = function() {
+                layer.setScale($scope.zoom / 100);
+                layer.draw();
+            };
+        }
+    ]);
