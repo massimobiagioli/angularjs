@@ -1,14 +1,17 @@
 'use strict';
 
-/* jasmine specs for services go here */
-
-describe('service', function() {
-  beforeEach(module('myApp.services'));
-
-
-  describe('version', function() {
-    it('should return current version', inject(function(version) {
-      expect(version).toEqual('0.1');
-    }));
-  });
+describe('services', function() {    
+    
+    beforeEach(function() {
+        module('ngRUAApp.services');        
+    });
+    
+    describe('DeviceTypeFactory', function() {       
+        describe('list', function() {
+            it('prova', function() {
+                expect(2).toBe(2);
+            });            
+        });        
+    });
+  
 });

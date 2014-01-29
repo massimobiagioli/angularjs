@@ -1,11 +1,14 @@
 'use strict';
 
-/* Controllers */
-
-angular.module('myApp.controllers', []).
-  controller('MyCtrl1', [function() {
-
-  }])
-  .controller('MyCtrl2', [function() {
-
-  }]);
+angular.module('ngRUAApp.controllers', []).
+    controller('HomeController', ['$scope',  
+        function($scope) {
+            //TODO 
+        }
+    ]).
+    controller('EsempioController', ['$scope',  
+        function($scope) {
+            //TODO
+        }
+    ]);
+            
