@@ -1,0 +1,32 @@
+<!-- Title -->
+<div class="container">
+    <div class="row">
+        <div class="span12 text-center">
+            <h1>Elenco Tipi dispositivo</h1>
+        </div>
+    </div>    
+</div>
+
+<div class="container container-custom">
+       
+    <!-- Header -->
+    <div class="row row-custom">
+        <div class="span2 text-center">
+            <span><b>Id</b></span>
+        </div>          
+        <div class="span10 text-left">
+            <span><b>Nome</b></span>
+        </div>        
+    </div>
+    
+    <!-- Dati -->    
+    <div class="row" ng-repeat="item in data">    
+        <div class="span2 text-center">
+            <span>{{item.id}}</span>
+        </div>    
+        <div class="span10 text-left">
+            <span>{{item.name}}</span>
+        </div>    
+    </div>
+    
+</div>
