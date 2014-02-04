@@ -2,13 +2,19 @@
 <div class="container">
     <div class="row">
         <div class="span12 text-center">
-            <h1>Elenco Tipi dispositivo</h1>
+            <h1>Elenco Tipi Dispositivo</h1>
         </div>
     </div>    
 </div>
 
 <div class="container container-custom">
-       
+    
+    <div class="row">
+        <div class="span12">
+            <span><a href="#/deviceTypeDetail/create">Nuovo</a></span>
+        </div>
+    </div>
+    
     <!-- Header -->
     <div class="row row-custom">
         <div class="span2 text-center">
@@ -25,7 +31,7 @@
             <span>{{item.id}}</span>
         </div>    
         <div class="span10 text-left">
-            <span>{{item.name}}</span>
+            <span><a href="#/deviceTypeDetail/edit/{{item.id}}">{{item.name}}</a></span>
         </div>    
     </div>
     

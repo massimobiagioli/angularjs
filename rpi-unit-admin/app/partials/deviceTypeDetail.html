@@ -1,0 +1,36 @@
+<!-- Title -->
+<div class="container">
+    <div class="row">
+        <div class="span12 text-center">
+            <h1>Dettaglio Tipo Dispositivo</h1>
+        </div>
+    </div>    
+</div>
+
+<div class="container container-custom">
+       
+    <!-- Dati -->
+    <div class="row" ng-show="action==='edit'">
+        <div class="span4 text-right">
+            <span><b>Id</b></span>
+        </div>          
+        <div class="span8 text-left">            
+            <input type="text" ng-model="data.id">
+        </div>        
+    </div>    
+    <div class="row">
+        <div class="span4 text-right">
+            <span><b>Nome</b></span>
+        </div>          
+        <div class="span8 text-left">
+            <input type="text" ng-model="data.name">
+        </div>        
+    </div>    
+    <div class="row">
+        <div class="span12 text-right">
+            <button>Ok</button>
+            <button>Annulla</button>
+        </div>                  
+    </div>    
+    
+</div>

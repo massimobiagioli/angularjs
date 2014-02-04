@@ -2,7 +2,7 @@
 
 angular.module('ngRUAApp.services', []).
     factory('CRUDModelFactory', ['$http', function($http) {        
-        var urlBase = 'http://localhost:3000/api';        
+        var urlBase = 'http://127.0.0.1:3000/api';        
         var username = "unit";
         var password = "Un1t&";                        
         
@@ -42,7 +42,18 @@ angular.module('ngRUAApp.services', []).
             return promise;
         };
         
+        var get = function(modelKey, id) {
+            var promise = $http.get(urlBase + '/get/' + modelKey + '/' + id, {
+                headers: getHeaders()                
+            }).then(function(response) {
+                return response.data;
+            });
+
+            return promise;            
+        };
+        
         return {
-            list: list
+            list: list,
+            get: get
         };
     }]);
