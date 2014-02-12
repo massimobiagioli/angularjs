@@ -5,8 +5,8 @@ angular.module('ngRUAApp.controllers', []).
         function($scope) {            
         }
     ]).
-    controller('DeviceTypeListController', ['$scope', 'CRUDModelFactory', 
-        function($scope, CRUDModelFactory) {                        
+    controller('DeviceTypeListController', ['$scope', '$location', 'CRUDModelFactory', 
+        function($scope, $location, CRUDModelFactory) {                        
             var modelKey = 'device_type';
             
             $scope.list = function() {
@@ -18,12 +18,20 @@ angular.module('ngRUAApp.controllers', []).
                 });                
             };
             
+            $scope.navigateToCreate = function() {
+                $location.path('/deviceTypeDetail/create');
+            };
+            
             $scope.list();            
         }
     ]).
-    controller('DeviceTypeDetailController', ['$scope', '$routeParams', 'CRUDModelFactory', 
-        function($scope, $routeParams, CRUDModelFactory) {                        
+    controller('DeviceTypeDetailController', ['$scope', '$location', '$routeParams', 'CRUDModelFactory', 
+        function($scope, $location, $routeParams, CRUDModelFactory) {                        
             var modelKey = 'device_type';
+
+            var navigateToList = function() {
+                $location.path('/deviceTypeList');
+            };                       
             
             $scope.get = function(id) {
                 CRUDModelFactory.get(modelKey, id).then(function(results) {                
@@ -39,6 +47,40 @@ angular.module('ngRUAApp.controllers', []).
                 $scope.data.name = '';
             };
             
+            $scope.ok = function() {
+                if ('create' === $scope.action) {
+                    CRUDModelFactory.insert(modelKey, $scope.data).then(function(results) {                
+                        $scope.data = results;
+                    }, 
+                    function(err) {                
+                        $scope.err = err;
+                    }); 
+                } else if ('edit' === $scope.action) { 
+                    CRUDModelFactory.update(modelKey, $scope.data).then(function(results) {                
+                        $scope.data = results;
+                    }, 
+                    function(err) {                
+                        $scope.err = err;
+                    });  
+                }   
+                navigateToList();
+            };
+            
+            $scope.remove = function() {                
+                CRUDModelFactory.remove(modelKey, $scope.data.id).then(function(results) {                
+                    $scope.data = results;
+                }, 
+                function(err) {                
+                    $scope.err = err;
+                });  
+                   
+                navigateToList();
+            };
+            
+            $scope.cancel = function() {
+                navigateToList();
+            };
+                        
             $scope.action = $routeParams.action;
                         
             if ('create' === $scope.action) {

@@ -26,8 +26,7 @@ angular.module('ngRUAApp.services', []).
                 'X-Auth': hash,
                 'X-Username': username,
                 'X-Timestamp': timestamp
-            };
-            console.log(headers);
+            };            
             
             return headers;
         };
@@ -52,8 +51,41 @@ angular.module('ngRUAApp.services', []).
             return promise;            
         };
         
+        var insert = function(modelKey, data) {
+            var promise = $http.post(urlBase + '/insert/' + modelKey, data, {
+                headers: getHeaders(),                
+            }).then(function(response) {
+                return response.data;
+            });
+
+            return promise;            
+        };
+        
+        var update = function(modelKey, data) {
+            var promise = $http.post(urlBase + '/update/' + modelKey + '/' + data.id, data, {
+                headers: getHeaders(),                
+            }).then(function(response) {
+                return response.data;
+            });
+
+            return promise;            
+        };
+        
+        var remove = function(modelKey, id) {
+            var promise = $http.post(urlBase + '/delete/' + modelKey + '/' + id, {}, {
+                headers: getHeaders(),                
+            }).then(function(response) {
+                return response.data;
+            });
+
+            return promise;            
+        };
+        
         return {
             list: list,
-            get: get
+            get: get,
+            insert: insert,
+            update: update,
+            remove: remove
         };
     }]);
